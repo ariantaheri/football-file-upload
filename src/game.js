@@ -104,7 +104,8 @@
 
   chooseFileButton.addEventListener('click', chooseFile);
   newFileButton.addEventListener('click', () => {
-    resultBackdrop.classList.remove('show');
+    // Keep the current result visible until a replacement file is actually selected.
+    // If the native file picker is cancelled, the previous state remains usable.
     chooseFile();
   });
   fileInput.addEventListener('change', event => {
