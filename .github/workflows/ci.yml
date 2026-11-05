@@ -1,0 +1,46 @@
+name: Quality checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate on Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20, 22, 24]
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Run syntax and structure checks
+        run: npm run check
+
+      - name: Smoke-test local server
+        shell: bash
+        run: |
+          npm run dev > /tmp/file-upload-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /tmp/file-upload-index.html; then
+              break
+            fi
+            sleep 1
+          done
+          grep -q 'Football file upload game' /tmp/file-upload-index.html
+          curl --fail --silent http://127.0.0.1:4173/src/game.js > /dev/null
+          curl --fail --silent http://127.0.0.1:4173/assets/preview.svg > /dev/null
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://127.0.0.1:4173/README.md)" = "404"
