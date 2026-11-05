@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#08150f" />
+<meta name="color-scheme" content="dark" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Football-Inspired File Upload" />
+<meta property="og:description" content="A playful file upload interaction. Pick a file, take the shot, beat the keeper, and score." />
+<meta property="og:image" content="assets/social-preview.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Football-Inspired File Upload" />
+<meta name="twitter:description" content="A playful file upload interaction. Pick a file, take the shot, beat the keeper, and score." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta name="description" content="A playful football-inspired file upload interaction. Drag, aim, shoot, and score." />
+<title>Football-Inspired File Upload</title>
+<link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+<main class="app">
+  <section class="board-shell" aria-label="Football file upload game">
+    <div class="board-inner" id="boardInner">
+      <canvas id="game" width="540" height="780" aria-label="Football field. Drag the file backward and release to shoot."></canvas>
+      <div class="start-upload" id="startUpload">
+        <button type="button" id="chooseFile" aria-label="Choose a file to start">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3.5h7l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 20V5a1.5 1.5 0 0 1 1-1.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3.8v4h4M12 11v6m-3-3 3-3 3 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Choose File</span>
+        </button>
+      </div>
+      <input type="file" id="fileInput" />
+      <div class="confetti" id="confetti"></div>
+      <div class="result-backdrop" id="resultBackdrop" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+        <div class="result-card">
+          <div class="result-icon" id="resultIcon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 6.8" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h2 id="resultTitle">File uploaded successfully</h2>
+          <div class="result-file" id="resultFile"></div>
+          <button class="result-button" id="newFileButton" type="button">Upload Another File</button>
+        </div>
+      </div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+<script src="src/config.js" defer></script>
+<script src="src/game.js" defer></script>
+</body>
+</html>
