@@ -121,7 +121,7 @@ Edit `src/config.js`:
 │   └── dependabot.yml        # Dependency and Actions update checks
 ├── assets/
 │   ├── preview.svg           # README project preview
-│   └── social-preview.png    # GitHub social preview image
+│   └── social-preview.svg    # GitHub social preview image
 ├── docs/                     # API, deployment, metadata, and roadmap docs
 ├── examples/server/          # Optional Express + Multer upload API
 ├── scripts/                  # Development server, checks, and Windows publisher
