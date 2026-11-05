@@ -2,7 +2,7 @@
 
 ## Static demo
 
-The front end is static and can be hosted by GitHub Pages or any static web host. The repository includes a GitHub Actions workflow that deploys the project after pushes to `main` once GitHub Pages is configured to use GitHub Actions.
+The front end is static and can be hosted by GitHub Pages or any static web host. The repository includes a GitHub Actions workflow that deploys the project when manually dispatched after GitHub Pages is configured to use GitHub Actions.
 
 A static host can demonstrate the interaction, but it cannot store uploaded files on its own. The default static configuration is demo-only.
 
