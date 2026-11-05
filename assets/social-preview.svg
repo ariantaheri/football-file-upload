@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="50" y1="20" x2="1220" y2="650" gradientUnits="userSpaceOnUse"><stop stop-color="#14291C"/><stop offset="1" stop-color="#06100A"/></linearGradient>
+    <linearGradient id="grass" x1="770" y1="70" x2="1120" y2="580" gradientUnits="userSpaceOnUse"><stop stop-color="#45A85E"/><stop offset=".55" stop-color="#2C8247"/><stop offset="1" stop-color="#1F6138"/></linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFB5AD"/><stop offset=".5" stop-color="#F36F73"/><stop offset="1" stop-color="#B83148"/></linearGradient>
+    <linearGradient id="file" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#DDE9DF"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="16"/></filter>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <circle cx="85" cy="50" r="250" fill="#C9FF70" opacity=".045"/>
+  <circle cx="1200" cy="590" r="280" fill="#4FBD77" opacity=".05"/>
+  <text x="90" y="190" fill="#C9FF70" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="800" letter-spacing="3.8">A PLAYFUL INTERACTION EXPERIMENT</text>
+  <text x="86" y="282" fill="#F4FFF2" font-family="Inter,Arial,sans-serif" font-size="76" font-weight="850" letter-spacing="-3">File upload,</text>
+  <text x="86" y="370" fill="#F4FFF2" font-family="Inter,Arial,sans-serif" font-size="76" font-weight="850" letter-spacing="-3">reimagined.</text>
+  <text x="92" y="438" fill="#C3D8C7" font-family="Inter,Arial,sans-serif" font-size="23">Pick a file. Take the shot.</text>
+  <text x="92" y="474" fill="#C3D8C7" font-family="Inter,Arial,sans-serif" font-size="23">Beat the keeper. Score to upload.</text>
+  <rect x="92" y="522" width="208" height="48" rx="13" fill="#C9FF70"/>
+  <text x="196" y="552" fill="#102112" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="14" font-weight="900" letter-spacing="1">OPEN SOURCE · MIT</text>
+  <rect x="655" y="34" width="540" height="576" rx="34" fill="#000" opacity=".36" filter="url(#shadow)"/>
+  <rect x="666" y="22" width="520" height="590" rx="32" fill="#1B3824" stroke="#D7FFD9" stroke-opacity=".16" stroke-width="2"/>
+  <rect x="680" y="36" width="492" height="562" rx="22" fill="url(#grass)"/>
+  <g>
+    <path d="M680 36h492v46H680zm0 92h492v46H680zm0 92h492v46H680zm0 92h492v46H680zm0 92h492v46H680zm0 92h492v46H680z" fill="#0C4B28" opacity=".09"/>
+    <rect x="696" y="50" width="460" height="534" rx="2" stroke="#F4FFF2" stroke-opacity=".7" stroke-width="2"/>
+    <path d="M696 317h460" stroke="#F4FFF2" stroke-opacity=".7" stroke-width="2"/>
+    <circle cx="926" cy="317" r="48" stroke="#F4FFF2" stroke-opacity=".7" stroke-width="2"/>
+    <circle cx="926" cy="317" r="3" fill="#F4FFF2"/>
+    <rect x="778" y="50" width="296" height="82" stroke="#F4FFF2" stroke-opacity=".7" stroke-width="2"/>
+    <rect x="824" y="50" width="204" height="42" stroke="#F4FFF2" stroke-opacity=".7" stroke-width="2"/>
+    <rect x="870" y="24" width="112" height="39" rx="2" fill="#06140B" fill-opacity=".72" stroke="#F6FFF4" stroke-width="4"/>
+    <path d="M883 28v31m13-31v31m13-31v31m13-31v31m13-31v31m13-31v31m-78-19h104m-104 10h104" stroke="#F6FFF4" stroke-opacity=".28"/>
+    <g><circle cx="926" cy="149" r="21" fill="url(#red)" stroke="#FFF" stroke-width="2"/><circle cx="926" cy="149" r="14" stroke="#68192A" stroke-opacity=".35"/></g>
+    <g><circle cx="824" cy="243" r="21" fill="url(#red)" stroke="#FFF" stroke-width="2"/><circle cx="824" cy="243" r="14" stroke="#68192A" stroke-opacity=".35"/></g>
+    <g><circle cx="1045" cy="363" r="21" fill="url(#red)" stroke="#FFF" stroke-width="2"/><circle cx="1045" cy="363" r="14" stroke="#68192A" stroke-opacity=".35"/></g>
+    <g><circle cx="870" cy="457" r="21" fill="url(#red)" stroke="#FFF" stroke-width="2"/><circle cx="870" cy="457" r="14" stroke="#68192A" stroke-opacity=".35"/></g>
+    <circle cx="926" cy="514" r="24" fill="url(#file)" stroke="#ECF5ED" stroke-width="2"/>
+    <path d="m926 502 8 6-3 9h-10l-3-9 8-6z" stroke="#344D3B" stroke-width="2"/>
+    <rect x="958" y="500" width="74" height="30" rx="9" fill="#092012" fill-opacity=".88" stroke="#F0FFF0" stroke-opacity=".36"/>
+    <text x="995" y="520" fill="#F5FFF4" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="800">PDF</text>
+    <rect x="826" y="295" width="200" height="42" rx="13" fill="#0A2112" fill-opacity=".78" stroke="#E8FFE6" stroke-opacity=".48" stroke-dasharray="5 6"/>
+    <path d="M910 316h32m-9-9 9 9-9 9" stroke="#C9FF70" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
