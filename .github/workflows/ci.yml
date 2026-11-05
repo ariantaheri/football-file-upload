@@ -86,5 +86,5 @@ jobs:
             -F "file=@$RUNNER_TEMP/sample-upload.txt;type=text/plain" \
             http://127.0.0.1:3001/api/upload > "$RUNNER_TEMP/upload.json"
 
-          node -e "const r=require(process.env.RUNNER_TEMP+'/upload.json'); if(!r.fileId || r.size!==34 || r.originalName!=='sample-upload.txt') { console.error(r); process.exit(1); }"
+          node -e "const r=require(process.env.RUNNER_TEMP+'/upload.json'); const expected=require('node:fs').statSync(process.env.RUNNER_TEMP+'/sample-upload.txt').size; if(!r.fileId || r.size!==expected || r.originalName!=='sample-upload.txt') { console.error(r); process.exit(1); }"
           test "$(find "$UPLOAD_DIR" -maxdepth 1 -type f | wc -l)" -eq 1
