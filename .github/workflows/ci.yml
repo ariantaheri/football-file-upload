@@ -44,3 +44,47 @@ jobs:
           curl --fail --silent http://127.0.0.1:4173/src/game.js > /dev/null
           curl --fail --silent http://127.0.0.1:4173/assets/preview.svg > /dev/null
           test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://127.0.0.1:4173/README.md)" = "404"
+
+  upload-server:
+    name: Test real upload API
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Install server dependencies
+        working-directory: examples/server
+        run: npm install --no-audit --no-fund
+
+      - name: Test health check and file upload
+        shell: bash
+        env:
+          PORT: 3001
+          UPLOAD_DIR: ${{ runner.temp }}/football-upload-test
+        run: |
+          mkdir -p "$UPLOAD_DIR"
+          node examples/server/server.js > "$RUNNER_TEMP/upload-server.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:3001/api/health > "$RUNNER_TEMP/health.json"; then
+              break
+            fi
+            sleep 1
+          done
+
+          node -e "const h=require(process.env.RUNNER_TEMP+'/health.json'); if(h.status!=='ok') process.exit(1)"
+
+          printf 'football upload integration test\n' > "$RUNNER_TEMP/sample-upload.txt"
+          curl --fail --silent --show-error \
+            -F "file=@$RUNNER_TEMP/sample-upload.txt;type=text/plain" \
+            http://127.0.0.1:3001/api/upload > "$RUNNER_TEMP/upload.json"
+
+          node -e "const r=require(process.env.RUNNER_TEMP+'/upload.json'); if(!r.fileId || r.size!==34 || r.originalName!=='sample-upload.txt') { console.error(r); process.exit(1); }"
+          test "$(find "$UPLOAD_DIR" -maxdepth 1 -type f | wc -l)" -eq 1
