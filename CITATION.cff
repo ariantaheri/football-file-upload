@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this project in your work, please cite it as below."
+title: "Football-Inspired File Upload"
+authors:
+  - family-names: Taheri
+    given-names: Arian
+version: 1.0.0
+date-released: 2026-11-05
+license: MIT
+repository-code: "https://github.com/ariantaheri/football-file-upload"
+url: "https://github.com/ariantaheri/football-file-upload"
