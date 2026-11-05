@@ -152,7 +152,7 @@ The repository includes a GitHub Pages workflow at `.github/workflows/pages.yml`
 1. Push the repository to the `main` branch.
 2. In GitHub, open **Settings → Pages**.
 3. Set the publishing source to **GitHub Actions**.
-4. Push to `main`, or manually run **Deploy demo to GitHub Pages** in the Actions tab.
+4. Manually run **Deploy demo to GitHub Pages** in the Actions tab after enabling Pages. This workflow is manual so regular checks stay green while Pages is not enabled.
 
 GitHub Pages hosts only the static demo. It does not provide an upload backend. Deploy an API separately and configure `uploadEndpoint` when real file storage is required. More details are in [Deployment](docs/deployment.md).
 
