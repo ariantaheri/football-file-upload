@@ -1,0 +1,9 @@
+.git
+.github
+node_modules
+**/node_modules
+examples/server/uploads
+*.zip
+*.tar.gz
+.env
+.env.*
