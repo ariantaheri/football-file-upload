@@ -16,6 +16,7 @@ The keyboard interaction intentionally provides a simple straight shot. Fine-gra
 - The file picker is a native button and file input.
 - The game canvas has an accessible name and references the keyboard instructions with `aria-describedby`.
 - Upload status messages use a polite live region.
+- When the result dialog opens, focus moves to its primary action; Tab and Shift+Tab remain within the dialog.
 - The result panel is exposed as a modal dialog with an associated heading.
 - The stylesheet respects the user's reduced-motion preference.
 
@@ -29,6 +30,9 @@ The keyboard interaction intentionally provides a simple straight shot. Fine-gra
 
 - Navigate to **Choose File** and activate it using the keyboard.
 - Select a file and confirm focus moves to the game field.
+- Complete a shot and confirm focus moves to the result dialog's primary action.
+- Press Tab and Shift+Tab and confirm focus remains inside the result dialog.
+- Select another file and confirm focus returns to the game field.
 - Press **Enter** and **Space** to take a shot.
 - Confirm a visible focus indicator appears on keyboard-focusable controls.
 - Test the file picker, status messages, and result dialog with a screen reader.
