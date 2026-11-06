@@ -49,4 +49,9 @@ for (const file of [
   await access(new URL(file, root));
 }
 
+assert.match(html, /aria-describedby="resultFile"/, 'Result dialog should announce the selected file name');
+assert.match(game, /function openResultDialog\(\)/, 'Result dialog focus management is missing');
+assert.match(game, /newFileButton\.focus\(\{ preventScroll: true \}\)/, 'Result dialog should move focus to its primary action');
+assert.match(game, /resultBackdrop\.addEventListener\('keydown'/, 'Result dialog should contain keyboard tab navigation');
+
 console.log(`Validation passed: ${ids.length} unique HTML IDs, ${referencedIds.length} DOM references, repository metadata, local server safeguards, and required project assets.`);
