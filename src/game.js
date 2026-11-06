@@ -457,13 +457,26 @@
     setTimeout(() => { confettiEl.innerHTML = ''; }, 2200);
   }
 
+  function openResultDialog() {
+    resultBackdrop.classList.add('show');
+    newFileButton.focus({ preventScroll: true });
+  }
+
+  // The result dialog has one action, so keep Tab and Shift+Tab on that action.
+  resultBackdrop.addEventListener('keydown', event => {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      newFileButton.focus({ preventScroll: true });
+    }
+  });
+
   function showSuccess() {
     resultTitle.textContent = 'File uploaded successfully';
     resultIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 6.8" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     resultIcon.style.background = 'var(--lime)';
     resultIcon.style.color = '#132410';
     resultFile.textContent = selectedFile ? selectedFile.name : '';
-    resultBackdrop.classList.add('show');
+    openResultDialog();
     burstConfetti();
     gameState = 'success';
   }
@@ -499,7 +512,7 @@
         resultIcon.style.background = '#ff8b82';
         resultIcon.style.color = '#3b1218';
         resultFile.textContent = selectedFile.name;
-        resultBackdrop.classList.add('show');
+        openResultDialog();
       }
     } else {
       // Demo mode: the goal shows a simulated success state.
