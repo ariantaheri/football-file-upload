@@ -21,7 +21,8 @@
 <main class="app">
   <section class="board-shell" aria-label="Football file upload game">
     <div class="board-inner" id="boardInner">
-      <canvas id="game" width="540" height="780" aria-label="Football field. Drag the file backward and release to shoot."></canvas>
+      <canvas id="game" width="540" height="780" tabindex="0" aria-label="Football field" aria-describedby="gameInstructions"></canvas>
+      <p class="sr-only" id="gameInstructions">After choosing a file, the game field receives keyboard focus. Press Enter or Space to take a straight shot. To aim manually, drag the file token backward with a mouse or touch screen, then release to shoot.</p>
       <div class="start-upload" id="startUpload">
         <button type="button" id="chooseFile" aria-label="Choose a file to start">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3.5h7l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 20V5a1.5 1.5 0 0 1 1-1.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3.8v4h4M12 11v6m-3-3 3-3 3 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>

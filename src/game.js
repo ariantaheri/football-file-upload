@@ -99,6 +99,7 @@
     boardInner.classList.add('has-file');
     resultBackdrop.classList.remove('show');
     resetFileToken();
+    canvas.focus({ preventScroll: true });
   }
   function chooseFile() { fileInput.click(); }
 
@@ -516,7 +517,6 @@
   }
 
   // Keyboard fallback: Enter/Space shoots toward the goal.
-  canvas.tabIndex = 0;
   canvas.addEventListener('keydown', event => {
     if ((event.key === 'Enter' || event.key === ' ') && selectedFile && gameState === 'ready') {
       event.preventDefault();
